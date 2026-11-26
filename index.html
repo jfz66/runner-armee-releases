@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <title>Runner d'Armée</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&display=swap">
+  <script type="module" crossorigin src="./assets/index-5F2JeWuw.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-oCWdJS7i.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="c" aria-label="Zone de jeu"></canvas>
+
+  <div class="hud">
+    <div class="pill" id="hudSquad"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="4.5" r="3" fill="currentColor"/><path d="M2.5 15c0-3.6 2.5-6 5.5-6s5.5 2.4 5.5 6z" fill="currentColor"/></svg><span id="squadNum">1</span></div>
+    <div class="progress" aria-label="Progression du niveau"><div id="prog"></div></div>
+    <div class="pill" id="hudDmg"><span class="k">DÉGÂTS</span><span id="dmgNum">×1</span></div>
+    <button class="pill sound" id="btnSound" type="button" aria-label="Couper le son" aria-pressed="false">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z" fill="currentColor"/><path class="wave" d="M11 5.5c1.2 1.4 1.2 3.6 0 5M12.8 3.8c2.1 2.4 2.1 6 0 8.4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/><path class="cross" d="M11 6l4 4M15 6l-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div id="fxLayer" aria-hidden="true"></div>
+
+  <div id="bossBar" hidden><div class="lbl"><span>BOSS</span><span id="bossHp">100 %</span></div><div class="bar"><div id="bossFill"></div></div></div>
+  <div id="armyLabel">1</div>
+  <div id="toast"></div>
+  <div id="hint">Glisse à gauche ou à droite · ← →</div>
+
+  <div class="screen" id="startScreen">
+    <div class="card">
+      <h1>Runner <span>d'Armée</span></h1>
+      <p>Prototype, un seul niveau. Ton escouade tire toute seule : tu la déplaces seulement de gauche à droite.</p>
+      <ul class="rules">
+        <li><i class="dot" style="background:var(--mint)"></i><span><b>Porte Soldats</b> : chaque balle qui la touche ajoute +1. Traverse-la pour recruter.</span></li>
+        <li><i class="dot" style="background:var(--amber)"></i><span><b>Porte Dégâts</b> : traverse-la pour doubler ta puissance de feu.</span></li>
+        <li><i class="dot" style="background:var(--red)"></i><span><b>Ennemis</b> : chacun qui touche ton escouade emporte un soldat.</span></li>
+      </ul>
+      <button class="go" id="btnStart" type="button">JOUER</button>
+      <p class="build-tag" id="buildTag"></p>
+    </div>
+  </div>
+
+  <div class="screen" id="endScreen" hidden>
+    <div class="card">
+      <h1 id="endTitle">Niveau terminé</h1>
+      <p id="endText">Le boss est tombé.</p>
+      <div class="stats">
+        <div class="stat"><b id="stSquad">0</b><span>Soldats</span></div>
+        <div class="stat"><b id="stKills">0</b><span>Ennemis</span></div>
+        <div class="stat"><b id="stTime">0 s</b><span>Durée</span></div>
+      </div>
+      <button class="go" id="btnRestart" type="button">REJOUER</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
